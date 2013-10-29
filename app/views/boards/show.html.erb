@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<strong>Cups:</strong>
+  <hr>
+  <br>
+  <% @cups.each do |cup| %>
+    <%= cup.id %>
+    |
+    <%= cup.marbles %>
+    <% if cup.id % 7 != 0 %>
+      <%= link_to 'Move', move_path(cup_id: cup.id, board_id: @board.id) %>
+    <% end %>
+    <hr>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_board_path(@cup) %> |
+<%= link_to 'Back', boards_path %>
